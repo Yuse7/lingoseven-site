@@ -409,7 +409,7 @@
       <!-- Mobile: cards list (hidden on desktop) -->
       <div class="method__mobile">
         <div class="method__hub method__hub--mob">
-          <video class="method__video" src="pics/animation.mp4" muted playsinline autoplay></video>
+          <video class="method__video" src="pics/animation.mp4" muted playsinline></video>
           <img class="method__logo" src="favicon.svg" alt="LingoSeven" style="display:none;">
         </div>
 
@@ -1002,23 +1002,22 @@
 
     requestAnimationFrame(syncWithOrbit);
 
-    // Hub video: play once, then show logo
-    const hubVideo = document.querySelector('.method__video');
-    const hubLogo = document.querySelector('.method__logo');
-    if (hubVideo) {
+    // Hub video: play once when scrolled into view, then show logo
+    document.querySelectorAll('.method__video').forEach(video => {
+      const logo = video.parentElement.querySelector('.method__logo');
       const observer = new IntersectionObserver(entries => {
-        if (entries[0].isIntersecting) {
-          hubVideo.play();
+        if (entries[0].isIntersecting && entries[0].intersectionRatio >= 0.5) {
+          video.play();
           observer.disconnect();
         }
       }, { threshold: 0.5 });
-      observer.observe(hubVideo);
-      hubVideo.addEventListener('ended', () => {
-        hubVideo.style.display = 'none';
-        hubLogo.style.display = 'block';
-        hubVideo.closest('.method__hub').style.background = 'transparent';
+      observer.observe(video);
+      video.addEventListener('ended', () => {
+        video.style.display = 'none';
+        if (logo) logo.style.display = 'block';
+        video.closest('.method__hub').style.background = 'transparent';
       });
-    }
+    });
 
     // Library tabs
     document.querySelectorAll('.library__tab').forEach(tab => {

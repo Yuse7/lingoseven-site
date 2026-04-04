@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LingoSeven — Учите язык через интересный контент</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#" class="logo">
+        <img src="pics/logo.svg" alt="LingoSeven" class="logo__img">
+        <span class="logo__text">Lingo7</span>
+      </a>
+      <nav class="nav">
+        <a href="#method" class="nav__link">Как это работает</a>
+        <a href="#library" class="nav__link">Библиотека</a>
+        <a href="#languages" class="nav__link">Языки</a>
+        <a href="#reviews" class="nav__link">Отзывы</a>
+        <a href="#faq" class="nav__link">FAQ</a>
+      </nav>
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="header__right">
+        <a href="https://apps.apple.com/us/app/lingo7-reading-audio/id6471030440" class="store-btn" target="_blank" rel="noopener" aria-label="App Store">
+          <img src="https://static.tildacdn.com/tild3763-3738-4137-b830-613065353063/_.svg" alt="App Store" height="44">
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.doublereading" class="store-btn" target="_blank" rel="noopener" aria-label="Google Play">
+          <img src="https://static.tildacdn.com/tild6238-3365-4437-b962-383231626236/__.svg" alt="Google Play" height="44">
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#method" class="mobile-menu__link">Как это работает</a>
+    <a href="#library" class="mobile-menu__link">Библиотека</a>
+    <a href="#languages" class="mobile-menu__link">Языки</a>
+    <a href="#reviews" class="mobile-menu__link">Отзывы</a>
+    <a href="#faq" class="mobile-menu__link">FAQ</a>
+  </div>
+
+  <!-- 1. Hero -->
+  <section class="hero">
+    <div class="hero__bg">
+      <div class="hero__wave hero__wave--1"></div>
+      <div class="hero__wave hero__wave--2"></div>
+    </div>
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <h1 class="hero__title">Учите язык через увлекательное чтение,<br>а&nbsp;не&nbsp;через скучные упражнения</h1>
+        <p class="hero__subtitle">Читайте и слушайте интересный контент, сохраняйте слова прямо из текста и повторяйте их по умному алгоритму.</p>
+        <a href="#" class="btn btn--primary hero__cta">Попробовать бесплатно 7 дней</a>
+        <p class="hero__trust">48 языков &bull; iPhone / Android</p>
+        <div class="hero__pills hero__pills--desktop">
+          <span class="pill">Параллельный перевод</span>
+          <span class="pill">Аудио + чтение</span>
+          <span class="pill">Тренажёр слов</span>
+          <span class="pill">Интервальное повторение</span>
+        </div>
+      </div>
+      <div class="hero__showcase">
+        <!-- Vocabulary deck above phone -->
+        <div class="vocab-deck" id="vocabRow">
+          <div class="vocab-card">
+            <span class="vocab-card__en">Star</span>
+            <span class="vocab-card__divider"></span>
+            <span class="vocab-card__ru">Звезда</span>
+          </div>
+          <div class="vocab-card">
+            <span class="vocab-card__en">Mind</span>
+            <span class="vocab-card__divider"></span>
+            <span class="vocab-card__ru">Разум</span>
+          </div>
+          <div class="vocab-card">
+            <span class="vocab-card__en">Time</span>
+            <span class="vocab-card__divider"></span>
+            <span class="vocab-card__ru">Время</span>
+          </div>
+          <div class="vocab-card vocab-card--new" id="vocabNew">
+            <span class="vocab-card__en">Wrote</span>
+            <span class="vocab-card__divider"></span>
+            <span class="vocab-card__ru">Написал</span>
+          </div>
+          <div class="vocab-card vocab-card--new" id="vocabNew2">
+            <span class="vocab-card__en">Universe</span>
+            <span class="vocab-card__divider"></span>
+            <span class="vocab-card__ru">Вселенная</span>
+          </div>
+        </div>
+        <div class="hero__phone-wrap">
+          <img src="pics/green2.png" alt="" class="hero__mascot">
+          <img src="pics/phone-clean.svg" alt="" class="phone__shell">
+          <div class="phone__frame phone__frame--hero">
+            <!-- Catalog screen (initial) -->
+            <div class="reader__catalog" id="readerCatalog">
+              <img src="pics/111.png" alt="Каталог" class="reader__catalog-img">
+            </div>
+            <div class="reader">
+              <!-- Шапка -->
+              <div class="reader__header">
+                <span class="reader__back">&#8249;</span>
+                <span class="reader__title">Краткая история в...</span>
+                <button class="reader__listen is-active">
+                  <span class="reader__eq">
+                    <span class="reader__eq-bar"></span>
+                    <span class="reader__eq-bar"></span>
+                    <span class="reader__eq-bar"></span>
+                    <span class="reader__eq-bar"></span>
+                  </span>
+                  Читает…
+                </button>
+              </div>
+              <!-- Контент -->
+              <div class="reader__content">
+                <div class="reader__chapter">A Brief History of Time: From the Big Bang to Black Holes</div>
+                <div class="reader__chapter-ru">Краткая история времени. От Большого Взрыва до чёрных дыр</div>
+
+                <div class="reader__subchapter">A Mind Turned to the Stars</div>
+                <div class="reader__subchapter-ru">Разум, обращённый к звёздам</div>
+
+                <div class="reader__pair">
+                  <p class="reader__en" data-line="0">Stephen Hawking, one of the greatest minds of modern physics, wrote this book not for his colleagues in the scientific field.</p>
+                  <p class="reader__ru">Стивен Хокинг, один из выдающихся умов современной физики, написал эту книгу вовсе не для коллег по научному цеху.</p>
+                </div>
+                <div class="reader__pair">
+                  <p class="reader__en" data-line="1">He wrote it for those who have ever wondered about the stars.</p>
+                  <p class="reader__ru">Он написал её для тех, кто когда-либо задумывался о звёздах.</p>
+                </div>
+                <div class="reader__pair">
+                  <p class="reader__en" data-line="2">About where the Universe came from, why it exists, and how it is truly structured.</p>
+                  <p class="reader__ru">О том, откуда взялась Вселенная, почему она существует, и как она устроена — по-настоящему.</p>
+                </div>
+                <div class="reader__pair">
+                  <p class="reader__en" data-line="3">His intention was clear from the very beginning: to bring great scientific ideas closer to those who are far from science but care about the truth.</p>
+                  <p class="reader__ru">Его замысел был ясен с самого начала: приблизить великие научные идеи к тем, кто далёк от науки, но неравнодушен к истине.</p>
+                </div>
+                <div class="reader__pair">
+                  <p class="reader__en" data-line="4">Hawking understood perfectly well that most works on theoretical physics are texts where meaning is drowned in mathematical equations.</p>
+                  <p class="reader__ru">Хокинг прекрасно понимал, что большинство работ по теоретической физике — это тексты, в которых смысл утоплен в математических уравнениях.</p>
+                </div>
+                <div class="reader__pair">
+                  <p class="reader__en" data-line="5">And he consciously chose a different path.</p>
+                  <p class="reader__ru">И он сознательно выбрал другой путь.</p>
+                </div>
+              </div>
+
+              <!-- Page footer -->
+              <div class="reader__footer">
+                <span class="reader__page">&#8249;</span>
+                <span class="reader__page">1 / 30</span>
+                <span class="reader__page">&#8250;</span>
+              </div>
+
+              <!-- Word popup bar -->
+              <div class="reader__popup" id="readerPopup">
+                <button class="reader__popup-btn" data-action="add">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Добавить
+                </button>
+                <button class="reader__popup-btn" data-action="learn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                  Учить
+                </button>
+                <button class="reader__popup-btn" data-action="translate">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  Перевод
+                </button>
+              </div>
+
+              <!-- Word card overlay -->
+              <div class="reader__card" id="readerCard">
+                <div class="reader__card-header">
+                  <button class="reader__card-close" id="readerCardClose">&times;</button>
+                </div>
+                <div class="reader__card-word">Wonder</div>
+                <div class="reader__card-transcription">[wʌndəɹ]</div>
+                <div class="reader__card-translation">— интересоваться</div>
+                <div class="reader__card-divider"></div>
+                <div class="reader__card-all">Все переводы:</div>
+                <div class="reader__card-alt">— интересоваться</div>
+                <div class="reader__card-alt">— удивляться</div>
+                <div class="reader__card-example">I <em>wonder</em> what time it is.</div>
+                <div class="reader__card-example-ru">Интересно, который сейчас час.</div>
+              </div>
+
+              <!-- Added to dictionary toast -->
+              <div class="reader__toast" id="readerToast">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Добавлено в словарь
+              </div>
+
+              <!-- Tap finger -->
+              <div class="reader__finger" id="readerFinger">
+                <img src="pics/finger.svg" alt="" width="36" height="36">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero__speech">
+        <img src="pics/green2.png" alt="" class="hero__speech-mascot">
+        <div class="hero__speech-bubble">
+          <p>Читайте и слушайте интересный контент, сохраняйте слова прямо из текста и повторяйте их по умному алгоритму.</p>
+          <span class="hero__speech-trust">48 языков &bull; iPhone / Android</span>
+        </div>
+      </div>
+      <div class="hero__pills hero__pills--mobile">
+        <div class="hero__pills-track">
+          <span class="pill">Параллельный перевод</span>
+          <span class="pill">Аудио + чтение</span>
+          <span class="pill">Тренажёр слов</span>
+          <span class="pill">Интервальное повторение</span>
+          <span class="pill">Параллельный перевод</span>
+          <span class="pill">Аудио + чтение</span>
+          <span class="pill">Тренажёр слов</span>
+          <span class="pill">Интервальное повторение</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Trust-strip -->
+  <section class="trust">
+    <div class="container trust__inner">
+      <div class="trust__card">
+        <svg class="trust__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <strong>7 дней бесплатно</strong>
+        <span>Попробуйте без риска</span>
+      </div>
+      <div class="trust__card">
+        <svg class="trust__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <strong>48 языков</strong>
+        <span>От английского до финского</span>
+      </div>
+      <div class="trust__card">
+        <svg class="trust__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+        <strong>Учёба через контент</strong>
+        <span>Книги, бестселлеры и статьи</span>
+      </div>
+      <div class="trust__card">
+        <svg class="trust__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+        <strong>Один цикл</strong>
+        <span>Чтение, аудио, слова, умное повторение</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Compare-block -->
+  <section class="compare" id="why">
+    <div class="container">
+      <h2 class="section__title">Почему обычные приложения быстро надоедают — а&nbsp;LingoSeven нет</h2>
+      <p class="section__subtitle">Проблема не в вашей дисциплине. Проблема в формате.</p>
+      <div class="compare__list">
+
+        <div class="compare__row">
+          <div class="compare__old">
+            <span class="compare__label compare__label--old">❌ Обычно</span>
+            <strong>Учите слова — но не понимаете, где их использовать</strong>
+            <p>Списки, карточки без контекста. Слова забываются через день.</p>
+          </div>
+          <div class="compare__arrow">→</div>
+          <div class="compare__new">
+            <span class="compare__label compare__label--new">✅ LingoSeven</span>
+            <strong>Слова встречаются в живом тексте</strong>
+            <p>Вы видите, как слово работает в предложении — и запоминаете естественно.</p>
+          </div>
+        </div>
+
+        <div class="compare__row">
+          <div class="compare__old">
+            <span class="compare__label compare__label--old">❌ Обычно</span>
+            <strong>Одни и те же упражнения каждый день</strong>
+            <p>Скучно. Мотивация падает. Приложение забрасывается через неделю.</p>
+          </div>
+          <div class="compare__arrow">→</div>
+          <div class="compare__new">
+            <span class="compare__label compare__label--new">✅ LingoSeven</span>
+            <strong>Читаете то, что реально интересно</strong>
+            <p>Бестселлеры, удивительные истории, научпоп — хочется возвращаться.</p>
+          </div>
+        </div>
+
+        <div class="compare__row">
+          <div class="compare__old">
+            <span class="compare__label compare__label--old">❌ Обычно</span>
+            <strong>Чтение, аудио и слова — всё по отдельности</strong>
+            <p>Три приложения. Ничего не связано. Прогресс размывается.</p>
+          </div>
+          <div class="compare__arrow">→</div>
+          <div class="compare__new">
+            <span class="compare__label compare__label--new">✅ LingoSeven</span>
+            <strong>Один цикл: читай → слушай → запоминай</strong>
+            <p>Текст, озвучка, словарь и повторение — в одном потоке.</p>
+          </div>
+        </div>
+
+        <div class="compare__row">
+          <div class="compare__old">
+            <span class="compare__label compare__label--old">❌ Обычно</span>
+            <strong>Читать в оригинале — слишком сложно</strong>
+            <p>Непонятные слова, потерянный смысл. Бросаете после первой страницы.</p>
+          </div>
+          <div class="compare__arrow">→</div>
+          <div class="compare__new">
+            <span class="compare__label compare__label--new">✅ LingoSeven</span>
+            <strong>Параллельный перевод рядом с текстом</strong>
+            <p>Читаете без стресса. Даже сложный текст становится доступным.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+<!-- 4. Метод L7 (Orbital) -->
+<section class="method" id="method">
+    <div class="container">
+      <h2 class="section__title">Как LingoSeven превращает интерес в&nbsp;реальный прогресс</h2>
+      <p class="section__subtitle">Пять направлений, которые работают вместе — и превращают интерес в реальный навык.</p>
+
+      <div class="method__layout">
+        <!-- Orbital diagram -->
+        <div class="method__diagram">
+          <div class="method__ring"></div>
+          <!-- Connection lines -->
+          <svg class="method__lines" width="440" height="440" viewBox="0 0 440 440">
+            <line x1="220" y1="220" x2="220" y2="35" stroke="url(#lineGrad)" stroke-width="1.5" opacity="0.5"/>
+            <line x1="220" y1="220" x2="396" y2="156" stroke="url(#lineGrad)" stroke-width="1.5" opacity="0.5"/>
+            <line x1="220" y1="220" x2="329" y2="370" stroke="url(#lineGrad)" stroke-width="1.5" opacity="0.5"/>
+            <line x1="220" y1="220" x2="111" y2="370" stroke="url(#lineGrad)" stroke-width="1.5" opacity="0.5"/>
+            <line x1="220" y1="220" x2="44" y2="156" stroke="url(#lineGrad)" stroke-width="1.5" opacity="0.5"/>
+            <defs>
+              <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#34D399" stop-opacity="0.8"/>
+                <stop offset="100%" stop-color="#34D399" stop-opacity="0.2"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <!-- Shared gradient for node icons -->
+          <svg width="0" height="0" style="position:absolute;">
+            <defs>
+              <linearGradient id="nodeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#34D399"/>
+                <stop offset="100%" stop-color="#059669"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="method__hub">
+            <video class="method__video" src="pics/animation.mp4" muted playsinline></video>
+            <img class="method__logo" src="favicon.svg" alt="LingoSeven" style="display:none;">
+          </div>
+
+          <button class="method__node method__node--1" data-idx="4">
+            <svg class="method__node-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="url(#nodeGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+            <span>Контент,<br>который<br>цепляет</span>
+          </button>
+          <button class="method__node method__node--2" data-idx="0">
+            <svg class="method__node-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="url(#nodeGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            <span>Понимаешь<br>текст</span>
+          </button>
+          <button class="method__node method__node--3" data-idx="1">
+            <svg class="method__node-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="url(#nodeGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="13" y2="11"/></svg>
+            <span>Запоминаешь<br>слова</span>
+          </button>
+          <button class="method__node method__node--4" data-idx="2">
+            <svg class="method__node-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="url(#nodeGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+            <span>Слышишь<br>речь</span>
+          </button>
+          <button class="method__node method__node--5" data-idx="3">
+            <svg class="method__node-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="url(#nodeGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            <span>Чувствуешь<br>грамматику</span>
+          </button>
+        </div>
+
+        <!-- Detail panel -->
+        <div class="method__details">
+          <div class="method__detail" data-idx="0">
+            <h3>Начинаете понимать тексты выше вашего уровня</h3>
+            <p>Параллельный перевод рядом с оригиналом. Не нужно лезть в словарь — просто читаете и понимаете.</p>
+          </div>
+          <div class="method__detail" data-idx="1">
+            <h3>Слова запоминаются, а не забываются через день</h3>
+            <p>Один тап — слово в словаре. Карточки с интервальным повторением возвращают его в нужный момент.</p>
+          </div>
+          <div class="method__detail" data-idx="2">
+            <h3>Начинаете слышать и понимать живую речь</h3>
+            <p>Режим «слушай и читай» — звук и текст одновременно. Мозг быстро привыкает к звучанию языка.</p>
+          </div>
+          <div class="method__detail" data-idx="3">
+            <h3>Грамматика начинает «чувствоваться»</h3>
+            <p>Вы встречаете конструкции в живом тексте снова и снова. Правила усваиваются естественно, без зубрёжки.</p>
+          </div>
+          <div class="method__detail is-visible" data-idx="4">
+            <h3>Контент, от которого не оторваться</h3>
+            <p>Бестселлеры, удивительные истории, научпоп — на разные уровни. Когда интересно, вы возвращаетесь каждый день, а язык растёт сам собой.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile: cards list (hidden on desktop) -->
+      <div class="method__mobile">
+        <div class="method__hub method__hub--mob">
+          <video class="method__video" src="pics/animation.mp4" muted playsinline autoplay></video>
+          <img class="method__logo" src="favicon.svg" alt="LingoSeven" style="display:none;">
+        </div>
+
+        <div class="method__mob-card">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <div>
+            <strong>Понимаешь текст</strong>
+            <p>Параллельный перевод рядом с оригиналом. Не нужно лезть в словарь — просто читаете и понимаете.</p>
+          </div>
+        </div>
+        <div class="method__mob-card">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="13" y2="11"/></svg>
+          <div>
+            <strong>Запоминаешь слова</strong>
+            <p>Один тап — слово в словаре. Карточки возвращают его в нужный момент.</p>
+          </div>
+        </div>
+        <div class="method__mob-card">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+          <div>
+            <strong>Слышишь речь</strong>
+            <p>Режим «слушай и читай» — звук и текст одновременно. Мозг быстро привыкает к звучанию.</p>
+          </div>
+        </div>
+        <div class="method__mob-card">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          <div>
+            <strong>Чувствуешь грамматику</strong>
+            <p>Конструкции встречаются в живом тексте снова и снова — правила усваиваются естественно.</p>
+          </div>
+        </div>
+        <div class="method__mob-card">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+          <div>
+            <strong>Контент, который цепляет</strong>
+            <p>Бестселлеры, удивительные истории, научпоп — на разные уровни. Когда интересно, язык растёт сам собой.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 4 шага -->
+  <section class="steps" id="steps">
+    <div class="container">
+      <h2 class="section__title">Откройте приложение — и&nbsp;просто двигайтесь по&nbsp;циклу</h2>
+      <p class="section__subtitle">Без сложной методики. Один понятный процесс, в котором контент ведёт вас к результату.</p>
+
+      <div class="steps__grid">
+        <div class="steps__card">
+          <span class="steps__num">01</span>
+          <div class="steps__phone">
+            <div class="phone__frame phone__frame--sm">
+              <img src="pics/header.png" alt="Выбор контента" class="phone__img">
+            </div>
+          </div>
+          <h3 class="steps__card-title">Выбирайте то, что интересно</h3>
+          <p class="steps__card-text">Книга, краткое содержание или статья — под настроение, уровень и количество времени.</p>
+        </div>
+
+        <div class="steps__connector"></div>
+
+        <div class="steps__card">
+          <span class="steps__num">02</span>
+          <div class="steps__phone">
+            <div class="phone__frame phone__frame--sm">
+              <img src="pics/IMG_1524.PNG" alt="Чтение с переводом" class="phone__img">
+            </div>
+          </div>
+          <h3 class="steps__card-title">Читайте с параллельным переводом</h3>
+          <p class="steps__card-text">Оригинал и перевод рядом — читаете быстро и без стресса, даже если текст выше вашего уровня.</p>
+        </div>
+
+        <div class="steps__connector"></div>
+
+        <div class="steps__card">
+          <span class="steps__num">03</span>
+          <div class="steps__phone">
+            <div class="phone__frame phone__frame--sm">
+              <img src="pics/IMG_1527.PNG" alt="Сохранение слов" class="phone__img">
+            </div>
+          </div>
+          <h3 class="steps__card-title">Сохраняйте новые слова из текста</h3>
+          <p class="steps__card-text">Один тап — слово в словаре, вместе с переводом и озвучкой.</p>
+        </div>
+
+        <div class="steps__connector"></div>
+
+        <div class="steps__card">
+          <span class="steps__num">04</span>
+          <div class="steps__phone">
+            <div class="phone__frame phone__frame--sm">
+              <img src="pics/test4.png" alt="Повторение" class="phone__img">
+            </div>
+          </div>
+          <h3 class="steps__card-title">Повторяйте в нужный момент</h3>
+          <p class="steps__card-text">Карточки с интервальным повторением показывают слово тогда, когда его важно закрепить.</p>
+        </div>
+
+      </div>
+
+      <p class="steps__summary">Одна сессия прокачивает сразу несколько навыков — а не просто «решает упражнения».</p>
+    </div>
+  </section>
+
+  <!-- 6. Библиотека -->
+  <section class="library" id="library">
+    <div class="container">
+      <h2 class="section__title">Контент, ради которого хочется возвращаться каждый день</h2>
+      <p class="section__subtitle">Не только учите язык, но и узнаёте новое. Материалы для разных уровней — от начинающих до продвинутых.</p>
+
+      <div class="library__tabs">
+        <button class="library__tab is-active" data-tab="classics">Классика</button>
+        <button class="library__tab" data-tab="summaries">Бестселлеры</button>
+        <button class="library__tab" data-tab="discovery">Discovery</button>
+      </div>
+
+      <div class="library__panels">
+        <div class="library__panel is-active" data-tab="classics">
+          <div class="library__panel-content">
+            <h3>Читайте великие книги в оригинале — с&nbsp;поддержкой</h3>
+            <p>Адаптированные и оригинальные версии для разных уровней. От «Маленького принца» до Хокинга. Параллельный перевод делает даже сложные тексты доступными.</p>
+            <div class="library__badges">
+              <span class="library__badge">A1-A2 Начинающим</span>
+              <span class="library__badge">B1-B2 Средний</span>
+              <span class="library__badge">C1+ Продвинутым</span>
+            </div>
+          </div>
+          <div class="library__phone">
+            <div class="phone__frame phone__frame--md">
+              <img src="pics/benjamin.png" alt="Классика" class="phone__img">
+            </div>
+          </div>
+        </div>
+
+        <div class="library__panel" data-tab="summaries">
+          <div class="library__panel-content">
+            <h3>Суть лучших книг мира за&nbsp;7-15 минут</h3>
+            <p>Ключевые идеи мировых бестселлеров в формате Headway — но на языке, который вы учите. Развивайтесь и учите язык одновременно.</p>
+            <div class="library__examples">Думай и богатей &bull; Принцип 80/20 &bull; 7 навыков высокоэффективных людей &bull; Сила настоящего</div>
+            <div class="library__badges">
+              <span class="library__badge">A1-A2 Начинающим</span>
+              <span class="library__badge">B1-B2 Средний</span>
+            </div>
+          </div>
+          <div class="library__phone">
+            <div class="phone__frame phone__frame--md">
+              <img src="pics/IMG_1518.PNG" alt="Бестселлеры" class="phone__img">
+            </div>
+          </div>
+        </div>
+
+        <div class="library__panel" data-tab="discovery">
+          <div class="library__panel-content">
+            <h3>5 минут в день — интересный факт +&nbsp;новые слова</h3>
+            <p>Космос, психология, бизнес, природа, технологии — сотни коротких статей на любую тему. Каждый день узнавайте что-то новое, а язык учится сам.</p>
+            <div class="library__badges">
+              <span class="library__badge">A1-A2 Начинающим</span>
+              <span class="library__badge">B1-B2 Средний</span>
+              <span class="library__badge">C1+ Продвинутым</span>
+            </div>
+          </div>
+          <div class="library__phone">
+            <div class="phone__frame phone__frame--md">
+              <img src="pics/IMG_1519.PNG" alt="Discovery" class="phone__img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 8. Для кого -->
+  <section class="audience" id="audience">
+    <div class="container">
+      <h2 class="section__title">LingoSeven подойдёт вам, если вы...</h2>
+      <div class="audience__grid">
+        <div class="audience__card">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Хотите учить язык через контент, а не через скучные уроки</span>
+        </div>
+        <div class="audience__card">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Постоянно бросаете приложения, потому что становится неинтересно</span>
+        </div>
+        <div class="audience__card">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Хотите читать и понимать, а не просто «закрывать задания»</span>
+        </div>
+        <div class="audience__card">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Ищете редкий язык, которого нет в большинстве приложений</span>
+        </div>
+        <div class="audience__card">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Хотите заниматься короткими сессиями по 5-15 минут</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Боли → Решения -->
+  <section class="pains" id="pains">
+    <div class="container">
+      <h2 class="section__title">Что мешает учить язык — и&nbsp;как это решает LingoSeven</h2>
+      <p class="section__subtitle">Проблема не в способностях. Проблема в формате обучения.</p>
+
+      <div class="pains__chips">
+        <button class="pains__chip is-active" data-pain="0">Мне скучно</button>
+        <button class="pains__chip" data-pain="1">Не запоминаю слова</button>
+        <button class="pains__chip" data-pain="2">Трудно читать</button>
+        <button class="pains__chip" data-pain="3">Не понимаю на слух</button>
+        <button class="pains__chip" data-pain="4">Мало времени</button>
+        <button class="pains__chip" data-pain="5">Редкий язык</button>
+        <button class="pains__chip" data-pain="6">Боюсь, не подойдёт</button>
+      </div>
+
+      <div class="pains__answers">
+        <div class="pains__answer is-active" data-pain="0">
+          <strong>«Мне быстро становится скучно»</strong>
+          <p>Вместо однотипных уроков — книги, бестселлеры и статьи на интересные темы. Когда контент цепляет, возвращаться проще.</p>
+        </div>
+        <div class="pains__answer" data-pain="1">
+          <strong>«Вижу слова, но не запоминаю»</strong>
+          <p>Слово сохраняется из контекста в один тап, потом возвращается в карточках по интервальному алгоритму. Запоминание становится системным.</p>
+        </div>
+        <div class="pains__answer" data-pain="2">
+          <strong>«Слишком трудно читать в оригинале»</strong>
+          <p>Параллельный перевод и выравнивание предложений — читаете без постоянных переключений в переводчик.</p>
+        </div>
+        <div class="pains__answer" data-pain="3">
+          <strong>«Плохо понимаю на слух»</strong>
+          <p>Режим «слушай и читай» связывает звучание слова с написанием и смыслом. Привыкаете к звучанию языка естественно.</p>
+        </div>
+        <div class="pains__answer" data-pain="4">
+          <strong>«У меня мало времени»</strong>
+          <p>Короткие форматы и быстрые сессии — даже 5-10 минут в день достаточно, чтобы не выпадать из ритма.</p>
+        </div>
+        <div class="pains__answer" data-pain="5">
+          <strong>«Нужен редкий язык»</strong>
+          <p>48 языков, включая сербский, эстонский, финский. Со всеми фичами — параллельный перевод, аудио, карточки.</p>
+        </div>
+        <div class="pains__answer" data-pain="6">
+          <strong>«Боюсь, что не подойдёт»</strong>
+          <p>7 дней бесплатно. Попробуйте и решите спокойно — вы ничем не рискуете.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. 48 языков -->
+  <section class="languages" id="languages">
+    <div class="container">
+      <h2 class="section__title">48 языков — не&nbsp;только самые популярные</h2>
+      <p class="section__subtitle">Учите тот язык, который нужен именно вам: для работы, переезда, путешествий или личного интереса.</p>
+      <div class="languages__marquee">
+        <div class="languages__track">
+          <span><img src="https://flagcdn.com/24x18/gb.png" alt="">Английский</span>
+          <span><img src="https://flagcdn.com/24x18/es.png" alt="">Испанский</span>
+          <span><img src="https://flagcdn.com/24x18/de.png" alt="">Немецкий</span>
+          <span><img src="https://flagcdn.com/24x18/fr.png" alt="">Французский</span>
+          <span><img src="https://flagcdn.com/24x18/it.png" alt="">Итальянский</span>
+          <span><img src="https://flagcdn.com/24x18/pt.png" alt="">Португальский</span>
+          <span><img src="https://flagcdn.com/24x18/cn.png" alt="">Китайский</span>
+          <span><img src="https://flagcdn.com/24x18/jp.png" alt="">Японский</span>
+          <span><img src="https://flagcdn.com/24x18/kr.png" alt="">Корейский</span>
+          <span><img src="https://flagcdn.com/24x18/tr.png" alt="">Турецкий</span>
+          <span><img src="https://flagcdn.com/24x18/sa.png" alt="">Арабский</span>
+          <span><img src="https://flagcdn.com/24x18/in.png" alt="">Хинди</span>
+          <span><img src="https://flagcdn.com/24x18/pl.png" alt="">Польский</span>
+          <span><img src="https://flagcdn.com/24x18/cz.png" alt="">Чешский</span>
+          <span><img src="https://flagcdn.com/24x18/nl.png" alt="">Нидерландский</span>
+          <span><img src="https://flagcdn.com/24x18/se.png" alt="">Шведский</span>
+          <span><img src="https://flagcdn.com/24x18/no.png" alt="">Норвежский</span>
+          <span><img src="https://flagcdn.com/24x18/dk.png" alt="">Датский</span>
+          <span><img src="https://flagcdn.com/24x18/fi.png" alt="">Финский</span>
+          <span><img src="https://flagcdn.com/24x18/ee.png" alt="">Эстонский</span>
+          <span><img src="https://flagcdn.com/24x18/rs.png" alt="">Сербский</span>
+          <span><img src="https://flagcdn.com/24x18/hr.png" alt="">Хорватский</span>
+          <span><img src="https://flagcdn.com/24x18/ro.png" alt="">Румынский</span>
+          <span><img src="https://flagcdn.com/24x18/hu.png" alt="">Венгерский</span>
+          <!-- duplicate for infinite scroll -->
+          <span><img src="https://flagcdn.com/24x18/gb.png" alt="">Английский</span>
+          <span><img src="https://flagcdn.com/24x18/es.png" alt="">Испанский</span>
+          <span><img src="https://flagcdn.com/24x18/de.png" alt="">Немецкий</span>
+          <span><img src="https://flagcdn.com/24x18/fr.png" alt="">Французский</span>
+          <span><img src="https://flagcdn.com/24x18/it.png" alt="">Итальянский</span>
+          <span><img src="https://flagcdn.com/24x18/pt.png" alt="">Португальский</span>
+          <span><img src="https://flagcdn.com/24x18/cn.png" alt="">Китайский</span>
+          <span><img src="https://flagcdn.com/24x18/jp.png" alt="">Японский</span>
+          <span><img src="https://flagcdn.com/24x18/kr.png" alt="">Корейский</span>
+          <span><img src="https://flagcdn.com/24x18/tr.png" alt="">Турецкий</span>
+          <span><img src="https://flagcdn.com/24x18/sa.png" alt="">Арабский</span>
+          <span><img src="https://flagcdn.com/24x18/in.png" alt="">Хинди</span>
+          <span><img src="https://flagcdn.com/24x18/pl.png" alt="">Польский</span>
+          <span><img src="https://flagcdn.com/24x18/cz.png" alt="">Чешский</span>
+          <span><img src="https://flagcdn.com/24x18/nl.png" alt="">Нидерландский</span>
+          <span><img src="https://flagcdn.com/24x18/se.png" alt="">Шведский</span>
+          <span><img src="https://flagcdn.com/24x18/no.png" alt="">Норвежский</span>
+          <span><img src="https://flagcdn.com/24x18/dk.png" alt="">Датский</span>
+          <span><img src="https://flagcdn.com/24x18/fi.png" alt="">Финский</span>
+          <span><img src="https://flagcdn.com/24x18/ee.png" alt="">Эстонский</span>
+          <span><img src="https://flagcdn.com/24x18/rs.png" alt="">Сербский</span>
+          <span><img src="https://flagcdn.com/24x18/hr.png" alt="">Хорватский</span>
+          <span><img src="https://flagcdn.com/24x18/ro.png" alt="">Румынский</span>
+          <span><img src="https://flagcdn.com/24x18/hu.png" alt="">Венгерский</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. Отзывы -->
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <h2 class="section__title">Что нравится пользователям LingoSeven</h2>
+      <div class="reviews__grid">
+        <div class="reviews__card">
+          <div class="reviews__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="reviews__text">Наконец-то не страшно читать на английском. Параллельный перевод — просто спасение. За месяц прочитала первую книгу целиком!</p>
+          <div class="reviews__author">
+            <strong>Анна К.</strong>
+            <span>Английский &bull; Начинающий</span>
+          </div>
+        </div>
+        <div class="reviews__card">
+          <div class="reviews__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="reviews__text">Занимаюсь по 10 минут в метро. Краткое содержание бестселлеров — отличная идея. И кругозор растёт, и язык подтягивается.</p>
+          <div class="reviews__author">
+            <strong>Дмитрий М.</strong>
+            <span>Испанский &bull; Средний</span>
+          </div>
+        </div>
+        <div class="reviews__card">
+          <div class="reviews__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="reviews__text">Стало заметно легче понимать на слух. Режим «слушай и читай» реально работает — связываешь звук с текстом.</p>
+          <div class="reviews__author">
+            <strong>Елена В.</strong>
+            <span>Немецкий &bull; Продолжающий</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. FAQ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <h2 class="section__title">Частые вопросы</h2>
+      <div class="faq__list">
+        <div class="faq__item is-open">
+          <button class="faq__q">Подойдёт ли LingoSeven новичкам?<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6l4 4 4-4"/></svg></button>
+          <div class="faq__a"><p>Да. Есть материалы разного уровня, а параллельный перевод помогает понимать текст даже на старте.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q">Это только для чтения?<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6l4 4 4-4"/></svg></button>
+          <div class="faq__a"><p>Нет. LingoSeven объединяет чтение, аудирование, словарь и интервальное повторение — всё в одном цикле.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q">Можно заниматься по 10 минут в день?<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6l4 4 4-4"/></svg></button>
+          <div class="faq__a"><p>Да. Короткие статьи, краткое содержание книг и карточки подходят для коротких ежедневных сессий.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q">Какие языки доступны?<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6l4 4 4-4"/></svg></button>
+          <div class="faq__a"><p>48 языков для носителей русского — от английского и испанского до финского и сербского.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q">Нужна ли карта для пробного периода?<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6l4 4 4-4"/></svg></button>
+          <div class="faq__a"><p>Нет. 7 дней бесплатно.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q">Чем отличается от обычных приложений?<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6l4 4 4-4"/></svg></button>
+          <div class="faq__a"><p>Вместо отдельных упражнений вы учите язык через интересный контент в замкнутом цикле: чтение, аудирование, словарь и повторение.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q">Есть ли разговорная практика?<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6l4 4 4-4"/></svg></button>
+          <div class="faq__a"><p>Сейчас фокус на чтении, аудировании, словарном запасе и грамматике. Разговорная практика и тренировка произношения — в ближайших планах.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13. Финальный CTA -->
+  <section class="final-cta">
+    <div class="container final-cta__inner">
+      <h2 class="final-cta__title">Начните учить язык с&nbsp;удовольствием уже сегодня</h2>
+      <p class="final-cta__text">7 дней бесплатно. Если не понравится — просто не продолжайте.</p>
+      <a href="#" class="btn btn--primary btn--lg">Попробовать бесплатно</a>
+      <div class="final-cta__stores">
+        <span>Доступно в App Store и Google Play</span>
+      </div>
+      <div class="final-cta__perks">
+        <span>48 языков</span>
+        <span>Для разных уровней</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14. Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#" class="logo">
+          <img src="pics/logo.svg" alt="LingoSeven" class="logo__img">
+          <span class="logo__text">Lingo7</span>
+        </a>
+        <p class="footer__copy">&copy; 2024-2026 LingoSeven. Все права защищены.</p>
+      </div>
+      <div class="footer__links">
+        <a href="#">О нас</a>
+        <a href="#">Контакты</a>
+        <a href="#">Оферта</a>
+        <a href="#">Конфиденциальность</a>
+      </div>
+      <div class="footer__subscribe">
+        <p>Подпишись на новости и обновления</p>
+        <form class="footer__form" onsubmit="return false;">
+          <input type="email" placeholder="Email" class="footer__input">
+          <button type="submit" class="btn btn--primary footer__btn">OK</button>
+        </form>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky CTA (mobile) -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="#" class="btn btn--primary btn--full">Попробовать бесплатно</a>
+  </div>
+  <script>
+    const stickyCta = document.getElementById('stickyCta');
+    const heroSection = document.querySelector('.hero');
+    const finalCta = document.querySelector('.final-cta');
+    if (stickyCta && heroSection) {
+      window.addEventListener('scroll', () => {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        const finalTop = finalCta ? finalCta.getBoundingClientRect().top : Infinity;
+        if (heroBottom < 0 && finalTop > window.innerHeight) {
+          stickyCta.classList.add('is-visible');
+        } else {
+          stickyCta.classList.remove('is-visible');
+        }
+      }, { passive: true });
+    }
+  </script>
+
+  <script>
+    // Burger menu
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('is-open');
+      mobileMenu.classList.toggle('is-open');
+    });
+    mobileMenu.querySelectorAll('.mobile-menu__link').forEach(link => {
+      link.addEventListener('click', () => {
+        burger.classList.remove('is-open');
+        mobileMenu.classList.remove('is-open');
+      });
+    });
+  </script>
+
+  <!-- Promo Modal -->
+  <div class="promo-modal" id="promoModal">
+    <div class="promo-modal__backdrop"></div>
+    <div class="promo-modal__card">
+      <button class="promo-modal__close" id="promoClose">&times;</button>
+      <h3 class="promo-modal__title">Ваш промокод на бесплатный доступ</h3>
+      <div class="promo-modal__code" id="promoCode">bestapp2026</div>
+      <button class="promo-modal__copy" id="promoCopy">Скопировать</button>
+      <div class="promo-modal__steps">
+        <div class="promo-modal__step">
+          <span class="promo-modal__num">1</span>
+          <p>Скачайте приложение LingoSeven</p>
+        </div>
+        <div class="promo-modal__stores">
+          <a href="https://apps.apple.com/us/app/lingo7-reading-audio/id6471030440" target="_blank" rel="noopener">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" height="44">
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.doublereading" target="_blank" rel="noopener">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" height="44">
+          </a>
+        </div>
+        <div class="promo-modal__step">
+          <span class="promo-modal__num">2</span>
+          <p>Откройте приложение и зайдите в <strong>Профиль</strong></p>
+        </div>
+        <div class="promo-modal__step">
+          <span class="promo-modal__num">3</span>
+          <p>Введите промокод <strong>bestapp2026</strong> — и пользуйтесь бесплатно!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Promo modal
+    const promoModal = document.getElementById('promoModal');
+    const promoClose = document.getElementById('promoClose');
+    const promoCopy = document.getElementById('promoCopy');
+
+    document.querySelectorAll('.hero__cta, .btn--lg, .sticky-cta .btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        promoModal.classList.add('is-open');
+      });
+    });
+
+    promoClose.addEventListener('click', () => promoModal.classList.remove('is-open'));
+    promoModal.querySelector('.promo-modal__backdrop').addEventListener('click', () => promoModal.classList.remove('is-open'));
+
+    promoCopy.addEventListener('click', () => {
+      navigator.clipboard.writeText('bestapp2026');
+      promoCopy.textContent = 'Скопировано!';
+      setTimeout(() => { promoCopy.textContent = 'Скопировать'; }, 2000);
+    });
+  </script>
+
+  <script>
+    // Orbital: click node → switch detail
+    const nodes = document.querySelectorAll('.method__node');
+    const details = document.querySelectorAll('.method__detail');
+
+    const lines = document.querySelectorAll('.method__lines line');
+
+    function showDetail(idx) {
+      nodes.forEach(n => n.classList.remove('is-active'));
+      details.forEach(d => d.classList.remove('is-visible'));
+      // Reset lines
+      lines.forEach(l => { l.setAttribute('opacity', '0.15'); l.setAttribute('stroke-width', '1.5'); });
+
+      const node = document.querySelector(`.method__node[data-idx="${idx}"]`);
+      if (node) {
+        node.classList.add('is-active');
+        // Find node position index (1-based from class)
+        const posClass = [...node.classList].find(c => c.match(/method__node--\d/));
+        if (posClass) {
+          const lineIdx = parseInt(posClass.replace('method__node--', '')) - 1;
+          if (lines[lineIdx]) {
+            lines[lineIdx].setAttribute('opacity', '0.7');
+            lines[lineIdx].setAttribute('stroke-width', '2.5');
+          }
+        }
+      }
+      const detail = document.querySelector(`.method__detail[data-idx="${idx}"]`);
+      if (detail) detail.classList.add('is-visible');
+    }
+
+    nodes.forEach(n => n.addEventListener('click', () => {
+      showDetail(n.dataset.idx);
+      userPaused = true;
+      clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(() => { userPaused = false; }, 10000);
+    }));
+
+    // Sync node activation with orbiting light (6s rotation)
+    // Node angles (from 12 o'clock, clockwise): 0°, 72°, 144°, 216°, 288°
+    // CSS conic-gradient starts from top and rotates clockwise
+    const nodeOrder = ['4', '0', '1', '2', '3']; // top, right-top, right-bot, left-bot, left-top
+    const ORBIT_DURATION = 12000; // matches CSS animation
+    let userPaused = false;
+    let resumeTimer;
+    let lastActivated = -1;
+
+    function syncWithOrbit() {
+      if (!userPaused) {
+        // Get current angle of the light from animation
+        const ring = document.querySelector('.method__ring');
+        if (ring) {
+          const style = getComputedStyle(ring, '::before');
+          // We track time-based since we can't easily read pseudo-element rotation
+          const elapsed = performance.now() % ORBIT_DURATION;
+          const angle = (elapsed / ORBIT_DURATION) * 360;
+
+          // Each node is 72° apart, starting at ~350° (just before top)
+          // Activate when light is within ±15° of node position
+          const nodeAngles = [0, 72, 144, 216, 288];
+          for (let i = 0; i < 5; i++) {
+            let diff = Math.abs(angle - nodeAngles[i]);
+            if (diff > 180) diff = 360 - diff;
+            if (diff < 15 && lastActivated !== i) {
+              lastActivated = i;
+              showDetail(nodeOrder[i]);
+              break;
+            }
+          }
+        }
+      }
+      requestAnimationFrame(syncWithOrbit);
+    }
+
+    requestAnimationFrame(syncWithOrbit);
+
+    // Hub video: play once, then show logo
+    const hubVideo = document.querySelector('.method__video');
+    const hubLogo = document.querySelector('.method__logo');
+    if (hubVideo) {
+      const observer = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
+          hubVideo.play();
+          observer.disconnect();
+        }
+      }, { threshold: 0.5 });
+      observer.observe(hubVideo);
+      hubVideo.addEventListener('ended', () => {
+        hubVideo.style.display = 'none';
+        hubLogo.style.display = 'block';
+        hubVideo.closest('.method__hub').style.background = 'transparent';
+      });
+    }
+
+    // Library tabs
+    document.querySelectorAll('.library__tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const id = tab.dataset.tab;
+        document.querySelectorAll('.library__tab').forEach(t => t.classList.remove('is-active'));
+        document.querySelectorAll('.library__panel').forEach(p => p.classList.remove('is-active'));
+        tab.classList.add('is-active');
+        document.querySelector(`.library__panel[data-tab="${id}"]`).classList.add('is-active');
+      });
+    });
+
+    // Pains chips
+    document.querySelectorAll('.pains__chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const idx = chip.dataset.pain;
+        document.querySelectorAll('.pains__chip').forEach(c => c.classList.remove('is-active'));
+        document.querySelectorAll('.pains__answer').forEach(a => a.classList.remove('is-active'));
+        chip.classList.add('is-active');
+        document.querySelector(`.pains__answer[data-pain="${idx}"]`).classList.add('is-active');
+      });
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq__q').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const wasOpen = item.classList.contains('is-open');
+        document.querySelectorAll('.faq__item').forEach(i => i.classList.remove('is-open'));
+        if (!wasOpen) item.classList.add('is-open');
+      });
+    });
+
+    // Reader: word-by-word karaoke + interactive demo
+    (function() {
+      const lines = document.querySelectorAll('.reader__en[data-line]');
+      const ruLines = document.querySelectorAll('.reader__ru');
+      const container = document.querySelector('.reader__content');
+      const popup = document.getElementById('readerPopup');
+      const card = document.getElementById('readerCard');
+      const cardClose = document.getElementById('readerCardClose');
+      const toast = document.getElementById('readerToast');
+      const finger = document.getElementById('readerFinger');
+      const reader = document.querySelector('.reader');
+      if (!lines.length || !container) return;
+
+      // Move finger to a word element and tap
+      function fingerTap(wordEl, cb) {
+        const rect = wordEl.getBoundingClientRect();
+        const readerRect = reader.getBoundingClientRect();
+        const maxTop = readerRect.height * 0.85;
+        const top = Math.min(rect.bottom - readerRect.top, maxTop);
+        const left = Math.max(0, Math.min(rect.left - readerRect.left + rect.width/2 - 6, readerRect.width - 40));
+        finger.style.top = top + 'px';
+        finger.style.left = left + 'px';
+        finger.classList.add('is-visible');
+        setTimeout(() => {
+          finger.classList.add('is-tapping');
+          setTimeout(() => {
+            finger.classList.remove('is-tapping');
+            if (cb) cb();
+          }, 300);
+        }, 400);
+      }
+
+      function fingerHide() {
+        finger.classList.remove('is-visible');
+      }
+
+      // Wrap each word in a span
+      lines.forEach(line => {
+        const words = line.textContent.split(/\s+/);
+        line.innerHTML = words.map(w => '<span class="reader__word">' + w + '</span>').join(' ');
+      });
+
+      const WORD_DELAY = 230;
+      const LINE_PAUSE = 400;
+      let lineIdx = 0;
+      let scenarioDone = false;
+
+      function scrollTo(line) {
+        const pair = line.closest('.reader__pair');
+        if (pair) {
+          const top = pair.offsetTop - container.offsetTop - 20;
+          container.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+        }
+      }
+
+      // Highlight a word in the Russian translation
+      function highlightRuWord(ruLine, word) {
+        const text = ruLine.textContent;
+        const regex = new RegExp('(' + word + ')', 'i');
+        ruLine.innerHTML = text.replace(regex, '<span class="reader__ru-hl">$1</span>');
+      }
+
+      function clearRuHighlight(ruLine) {
+        ruLine.innerHTML = ruLine.textContent;
+      }
+
+      function showPopup() { popup.classList.add('is-visible'); }
+      function hidePopup() { popup.classList.remove('is-visible'); }
+      function showCard() { card.classList.add('is-visible'); }
+      function hideCard() { card.classList.remove('is-visible'); }
+      const vocabNew = document.getElementById('vocabNew');
+      const vocabNew2 = document.getElementById('vocabNew2');
+      let scenario2Done = false;
+
+      function showToast(vocabEl) {
+        toast.classList.add('is-visible');
+        if (vocabEl) {
+          // Previous green card becomes normal
+          document.querySelectorAll('.vocab-card--new.is-visible').forEach(el => {
+            el.classList.remove('vocab-card--new');
+          });
+          vocabEl.classList.add('is-visible');
+        }
+        setTimeout(() => toast.classList.remove('is-visible'), 1800);
+      }
+
+      // Scenario 1: tap "wrote" in line 1
+      function runScenario1(cb) {
+        const line = lines[1];
+        const words = line.querySelectorAll('.reader__word');
+        const wroteWord = words[1]; // "wrote"
+        const ruLine = ruLines[1];
+
+        lineIdx = 1;
+        line.classList.add('is-reading');
+        scrollTo(line);
+
+        words[0].classList.add('is-spoken');
+        setTimeout(() => {
+          words[0].classList.remove('is-spoken');
+
+          // Finger taps "wrote"
+          fingerTap(wroteWord, () => {
+            wroteWord.classList.add('is-tapped');
+            highlightRuWord(ruLine, 'написал');
+            showPopup();
+            fingerHide();
+          });
+
+          // Finger taps "Добавить" button
+          setTimeout(() => {
+            const addBtn = popup.querySelector('[data-action="add"]');
+            fingerTap(addBtn, () => {
+              hidePopup();
+              fingerHide();
+              wroteWord.classList.remove('is-tapped');
+              clearRuHighlight(ruLine);
+              showToast(vocabNew);
+            });
+          }, 1800);
+
+          setTimeout(() => {
+            let wi = 2;
+            function resumeWords() {
+              if (wi > 2) words[wi - 1].classList.remove('is-spoken');
+              if (wi < words.length) {
+                words[wi].classList.add('is-spoken');
+                wi++;
+                setTimeout(resumeWords, WORD_DELAY);
+              } else {
+                setTimeout(() => {
+                  words.forEach(w => w.classList.remove('is-spoken'));
+                  line.classList.remove('is-reading');
+                  lineIdx = 2;
+                  scenarioDone = true;
+                  cb();
+                }, LINE_PAUSE);
+              }
+            }
+            resumeWords();
+          }, 4100);
+        }, WORD_DELAY);
+      }
+
+      // Scenario 2: tap "Universe" in line 2
+      function runScenario2(cb) {
+        const line = lines[2]; // "About where the Universe came from..."
+        const words = line.querySelectorAll('.reader__word');
+        const universeWord = words[3]; // "Universe"
+        const ruLine = ruLines[2];
+
+        lineIdx = 2;
+        line.classList.add('is-reading');
+        scrollTo(line);
+
+        // Read "About where the", then pause
+        let wi = 0;
+        function readPartial() {
+          if (wi > 0) words[wi - 1].classList.remove('is-spoken');
+          if (wi < 3) {
+            words[wi].classList.add('is-spoken');
+            wi++;
+            setTimeout(readPartial, WORD_DELAY);
+          } else {
+            words[wi - 1].classList.remove('is-spoken');
+
+            // Finger taps "Universe"
+            fingerTap(universeWord, () => {
+              universeWord.classList.add('is-tapped');
+              highlightRuWord(ruLine, 'Вселенная');
+              showPopup();
+              fingerHide();
+            });
+
+            // Finger taps "Добавить" button
+            setTimeout(() => {
+              const addBtn = popup.querySelector('[data-action="add"]');
+              fingerTap(addBtn, () => {
+                hidePopup();
+                fingerHide();
+                universeWord.classList.remove('is-tapped');
+                clearRuHighlight(ruLine);
+                showToast(vocabNew2);
+              });
+            }, 1800);
+
+            // Resume from "came" (index 4)
+            setTimeout(() => {
+              let ri = 4;
+              function resumeWords() {
+                if (ri > 4) words[ri - 1].classList.remove('is-spoken');
+                if (ri < words.length) {
+                  words[ri].classList.add('is-spoken');
+                  ri++;
+                  setTimeout(resumeWords, WORD_DELAY);
+                } else {
+                  setTimeout(() => {
+                    words.forEach(w => w.classList.remove('is-spoken'));
+                    line.classList.remove('is-reading');
+                    lineIdx = 3;
+                    scenario2Done = true;
+                    cb();
+                  }, LINE_PAUSE);
+                }
+              }
+              resumeWords();
+            }, 4100);
+          }
+        }
+        readPartial();
+      }
+
+      function readLine() {
+        // Intercept for scenarios
+        if (lineIdx === 1 && !scenarioDone) {
+          runScenario1(readLine);
+          return;
+        }
+        if (lineIdx === 2 && !scenario2Done) {
+          runScenario2(readLine);
+          return;
+        }
+
+        const line = lines[lineIdx];
+        const words = line.querySelectorAll('.reader__word');
+        line.classList.add('is-reading');
+        scrollTo(line);
+
+        let wordIdx = 0;
+        function nextWord() {
+          if (wordIdx > 0) words[wordIdx - 1].classList.remove('is-spoken');
+          if (wordIdx < words.length) {
+            words[wordIdx].classList.add('is-spoken');
+            wordIdx++;
+            setTimeout(nextWord, WORD_DELAY);
+          } else {
+            setTimeout(() => {
+              words.forEach(w => w.classList.remove('is-spoken'));
+              line.classList.remove('is-reading');
+              lineIdx = (lineIdx + 1) % lines.length;
+
+              if (lineIdx === 0) {
+                container.scrollTo({ top: 0, behavior: 'smooth' });
+                scenarioDone = false;
+                scenario2Done = false;
+                if (vocabNew) { vocabNew.classList.remove('is-visible'); vocabNew.classList.add('vocab-card--new'); }
+                if (vocabNew2) { vocabNew2.classList.remove('is-visible'); vocabNew2.classList.add('vocab-card--new'); }
+                // Show catalog again
+                if (catalog) {
+                  catalog.classList.remove('is-hidden');
+                  setTimeout(() => {
+                    finger.style.top = '95%';
+                    finger.style.left = '45%';
+                    finger.classList.add('is-visible');
+                    setTimeout(() => {
+                      finger.classList.add('is-tapping');
+                      setTimeout(() => {
+                        finger.classList.remove('is-tapping');
+                        finger.classList.remove('is-visible');
+                        catalog.classList.add('is-hidden');
+                        setTimeout(readLine, 800);
+                      }, 300);
+                    }, 400);
+                  }, 2500);
+                } else {
+                  setTimeout(readLine, 1000);
+                }
+              } else {
+                readLine();
+              }
+            }, LINE_PAUSE);
+          }
+        }
+        nextWord();
+      }
+
+      // Start with catalog, then transition to reader
+      const catalog = document.getElementById('readerCatalog');
+      if (catalog) {
+        // After 2s, finger taps "Читать" tab at bottom center
+        setTimeout(() => {
+          // Position finger at bottom center of phone (where "Читать" tab is)
+          finger.style.top = '95%';
+          finger.style.left = '45%';
+          finger.classList.add('is-visible');
+          setTimeout(() => {
+            finger.classList.add('is-tapping');
+            setTimeout(() => {
+              finger.classList.remove('is-tapping');
+              finger.classList.remove('is-visible');
+              catalog.classList.add('is-hidden');
+              // Start reading after transition
+              setTimeout(readLine, 800);
+            }, 300);
+          }, 400);
+        }, 2500);
+      } else {
+        setTimeout(readLine, 1500);
+      }
+    })();
+  </script>
+
+</body>
+</html>

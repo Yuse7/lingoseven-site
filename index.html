@@ -29,7 +29,15 @@
       <button class="burger" id="burger" aria-label="Меню">
         <span></span><span></span><span></span>
       </button>
-      <div class="header__right">
+      <div class="header__right header__right--desktop">
+        <a href="https://apps.apple.com/us/app/lingo7-reading-audio/id6471030440" class="store-btn" target="_blank" rel="noopener" aria-label="App Store">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" height="40">
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.doublereading" class="store-btn" target="_blank" rel="noopener" aria-label="Google Play">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" height="40">
+        </a>
+      </div>
+      <div class="header__right header__right--mobile">
         <a href="https://apps.apple.com/us/app/lingo7-reading-audio/id6471030440" class="store-btn" target="_blank" rel="noopener" aria-label="App Store">
           <img src="https://static.tildacdn.com/tild3763-3738-4137-b830-613065353063/_.svg" alt="App Store" height="44">
         </a>
@@ -244,7 +252,7 @@
       <div class="trust__card">
         <svg class="trust__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
         <strong>Учёба через контент</strong>
-        <span>Книги, бестселлеры и статьи</span>
+        <span>Классика, современные бестселлеры и статьи</span>
       </div>
       <div class="trust__card">
         <svg class="trust__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
@@ -325,7 +333,7 @@
 <section class="method" id="method">
     <div class="container">
       <h2 class="section__title">Как LingoSeven превращает интерес в&nbsp;реальный прогресс</h2>
-      <p class="section__subtitle">Пять направлений, которые работают вместе — и превращают интерес в реальный навык.</p>
+      <p class="section__subtitle">Всё начинается с контента, который хочется читать и слушать — а дальше в одном цикле подтягиваются понимание, слова, речь и грамматика.</p>
 
       <div class="method__layout">
         <!-- Orbital diagram -->
@@ -354,9 +362,13 @@
               </linearGradient>
             </defs>
           </svg>
-          <div class="method__hub">
+          <div class="method__hub" id="methodPause">
             <video class="method__video" src="pics/animation.mp4" muted playsinline></video>
             <img class="method__logo" src="favicon.svg" alt="LingoSeven" style="display:none;">
+            <div class="method__hub-overlay">
+              <svg class="method__pause-icon" width="32" height="32" viewBox="0 0 24 24" fill="#fff"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+              <svg class="method__play-icon" width="32" height="32" viewBox="0 0 24 24" fill="#fff" style="display:none"><polygon points="6 3 20 12 6 21"/></svg>
+            </div>
           </div>
 
           <button class="method__node method__node--1" data-idx="4">
@@ -383,6 +395,10 @@
 
         <!-- Detail panel -->
         <div class="method__details">
+          <div class="method__detail" data-idx="4">
+            <h3>Контент, от которого не оторваться</h3>
+            <p>Бестселлеры, удивительные истории, научпоп — на разные уровни. Когда интересно, вы возвращаетесь каждый день, а язык растёт сам собой.</p>
+          </div>
           <div class="method__detail" data-idx="0">
             <h3>Начинаете понимать тексты выше вашего уровня</h3>
             <p>Параллельный перевод рядом с оригиналом. Не нужно лезть в словарь — просто читаете и понимаете.</p>
@@ -399,12 +415,9 @@
             <h3>Грамматика начинает «чувствоваться»</h3>
             <p>Вы встречаете конструкции в живом тексте снова и снова. Правила усваиваются естественно, без зубрёжки.</p>
           </div>
-          <div class="method__detail is-visible" data-idx="4">
-            <h3>Контент, от которого не оторваться</h3>
-            <p>Бестселлеры, удивительные истории, научпоп — на разные уровни. Когда интересно, вы возвращаетесь каждый день, а язык растёт сам собой.</p>
-          </div>
         </div>
       </div>
+
 
       <!-- Mobile: cards list (hidden on desktop) -->
       <div class="method__mobile">
@@ -540,7 +553,16 @@
           </div>
           <div class="library__phone">
             <div class="phone__frame phone__frame--md">
-              <img src="pics/benjamin.png" alt="Классика" class="phone__img">
+              <img src="pics/benjamin.png" alt="Классика" class="phone__img library__screen">
+            </div>
+            <div class="library__dots">
+              <span class="library__dot is-active" data-src="pics/benjamin.png"></span>
+              <span class="library__dot" data-src="pics/IMG_1521.PNG"></span>
+              <span class="library__dot" data-src="pics/IMG_1523.PNG"></span>
+              <span class="library__dot" data-src="pics/IMG_1525.PNG"></span>
+              <span class="library__dot" data-src="pics/1234.png"></span>
+              <span class="library__dot" data-src="pics/IMG_1526.PNG"></span>
+              <span class="library__dot" data-src="pics/IMG_1524.PNG"></span>
             </div>
           </div>
         </div>
@@ -548,7 +570,7 @@
         <div class="library__panel" data-tab="summaries">
           <div class="library__panel-content">
             <h3>Суть лучших книг мира за&nbsp;7-15 минут</h3>
-            <p>Ключевые идеи мировых бестселлеров в формате Headway — но на языке, который вы учите. Развивайтесь и учите язык одновременно.</p>
+            <p>Ключевые идеи мировых бестселлеров в кратком пересказе — на языке, который вы учите. Развивайтесь и учите язык одновременно.</p>
             <div class="library__examples">Думай и богатей &bull; Принцип 80/20 &bull; 7 навыков высокоэффективных людей &bull; Сила настоящего</div>
             <div class="library__badges">
               <span class="library__badge">A1-A2 Начинающим</span>
@@ -557,7 +579,16 @@
           </div>
           <div class="library__phone">
             <div class="phone__frame phone__frame--md">
-              <img src="pics/IMG_1518.PNG" alt="Бестселлеры" class="phone__img">
+              <img src="pics/IMG_1518.PNG" alt="Бестселлеры" class="phone__img library__screen">
+            </div>
+            <div class="library__dots">
+              <span class="library__dot is-active" data-src="pics/IMG_1518.PNG"></span>
+              <span class="library__dot" data-src="pics/IMG_1536.PNG"></span>
+              <span class="library__dot" data-src="pics/IMG_1522.PNG"></span>
+              <span class="library__dot" data-src="pics/IMG_1523.PNG"></span>
+              <span class="library__dot" data-src="pics/IMG_1525.PNG"></span>
+              <span class="library__dot" data-src="pics/1234.png"></span>
+              <span class="library__dot" data-src="pics/IMG_1526.PNG"></span>
             </div>
           </div>
         </div>
@@ -574,7 +605,16 @@
           </div>
           <div class="library__phone">
             <div class="phone__frame phone__frame--md">
-              <img src="pics/IMG_1519.PNG" alt="Discovery" class="phone__img">
+              <img src="pics/IMG_1519.PNG" alt="Discovery" class="phone__img library__screen">
+            </div>
+            <div class="library__dots">
+              <span class="library__dot is-active" data-src="pics/IMG_1519.PNG"></span>
+              <span class="library__dot" data-src="pics/IMG_1517.PNG"></span>
+              <span class="library__dot" data-src="pics/IMG_1520.PNG"></span>
+              <span class="library__dot" data-src="pics/IMG_1523.PNG"></span>
+              <span class="library__dot" data-src="pics/IMG_1525.PNG"></span>
+              <span class="library__dot" data-src="pics/1234.png"></span>
+              <span class="library__dot" data-src="pics/IMG_1526.PNG"></span>
             </div>
           </div>
         </div>
@@ -934,16 +974,22 @@
 
     const lines = document.querySelectorAll('.method__lines line');
 
-    function showDetail(idx) {
+    function resetAll() {
       nodes.forEach(n => n.classList.remove('is-active'));
-      details.forEach(d => d.classList.remove('is-visible'));
-      // Reset lines
+      details.forEach(d => {
+        d.classList.remove('is-visited', 'is-active-detail');
+      });
+      lines.forEach(l => { l.setAttribute('opacity', '0.15'); l.setAttribute('stroke-width', '1.5'); });
+    }
+
+    function showDetail(idx) {
+      // Highlight active node
+      nodes.forEach(n => n.classList.remove('is-active'));
       lines.forEach(l => { l.setAttribute('opacity', '0.15'); l.setAttribute('stroke-width', '1.5'); });
 
       const node = document.querySelector(`.method__node[data-idx="${idx}"]`);
       if (node) {
         node.classList.add('is-active');
-        // Find node position index (1-based from class)
         const posClass = [...node.classList].find(c => c.match(/method__node--\d/));
         if (posClass) {
           const lineIdx = parseInt(posClass.replace('method__node--', '')) - 1;
@@ -953,15 +999,29 @@
           }
         }
       }
+
+      // Collapse previous active into visited
+      details.forEach(d => {
+        if (d.classList.contains('is-active-detail')) {
+          d.classList.remove('is-active-detail');
+          d.classList.add('is-visited');
+        }
+      });
+
+      // Expand current
       const detail = document.querySelector(`.method__detail[data-idx="${idx}"]`);
-      if (detail) detail.classList.add('is-visible');
+      if (detail) {
+        detail.classList.remove('is-visited');
+        detail.classList.add('is-active-detail');
+      }
     }
 
     nodes.forEach(n => n.addEventListener('click', () => {
+      resetAll();
       showDetail(n.dataset.idx);
       userPaused = true;
       clearTimeout(resumeTimer);
-      resumeTimer = setTimeout(() => { userPaused = false; }, 10000);
+      resumeTimer = setTimeout(() => { userPaused = false; resetAll(); lastActivated = -1; }, 10000);
     }));
 
     // Sync node activation with orbiting light (6s rotation)
@@ -990,6 +1050,10 @@
             let diff = Math.abs(angle - nodeAngles[i]);
             if (diff > 180) diff = 360 - diff;
             if (diff < 15 && lastActivated !== i) {
+              // New cycle — reset when first node activates again
+              if (i === 0 && lastActivated >= 3) {
+                resetAll();
+              }
               lastActivated = i;
               showDetail(nodeOrder[i]);
               break;
@@ -1001,6 +1065,28 @@
     }
 
     requestAnimationFrame(syncWithOrbit);
+
+    // Pause/Play on hub click
+    const hubEl = document.getElementById('methodPause');
+    const pauseIcon = hubEl.querySelector('.method__pause-icon');
+    const playIcon = hubEl.querySelector('.method__play-icon');
+    const methodSection = document.querySelector('.method');
+    const methodVideos = methodSection.querySelectorAll('.method__video');
+
+    hubEl.addEventListener('click', () => {
+      userPaused = !userPaused;
+      if (userPaused) {
+        pauseIcon.style.display = 'none';
+        playIcon.style.display = 'block';
+        methodSection.classList.add('is-paused');
+        methodVideos.forEach(v => { if (!v.paused) v.pause(); });
+      } else {
+        pauseIcon.style.display = 'block';
+        playIcon.style.display = 'none';
+        methodSection.classList.remove('is-paused');
+        methodVideos.forEach(v => { if (v.paused && !v.ended) v.play(); });
+      }
+    });
 
     // Hub video: play once when scrolled into view, then show logo
     document.querySelectorAll('.method__video').forEach(video => {
@@ -1019,6 +1105,28 @@
       });
     });
 
+    // Compare cards reveal on scroll
+    const compareRows = document.querySelectorAll('.compare__row');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    compareRows.forEach((row, i) => {
+      row.style.transitionDelay = (i * 0.15) + 's';
+      revealObserver.observe(row);
+    });
+
+    // Audience cards reveal on scroll
+    const audienceCards = document.querySelectorAll('.audience__card');
+    audienceCards.forEach((card, i) => {
+      card.style.transitionDelay = (i * 0.1) + 's';
+      revealObserver.observe(card);
+    });
+
     // Library tabs
     document.querySelectorAll('.library__tab').forEach(tab => {
       tab.addEventListener('click', () => {
@@ -1027,6 +1135,23 @@
         document.querySelectorAll('.library__panel').forEach(p => p.classList.remove('is-active'));
         tab.classList.add('is-active');
         document.querySelector(`.library__panel[data-tab="${id}"]`).classList.add('is-active');
+      });
+    });
+
+    // Library dots (gallery)
+    document.querySelectorAll('.library__dots').forEach(dotsWrap => {
+      const dots = dotsWrap.querySelectorAll('.library__dot');
+      const img = dotsWrap.closest('.library__phone').querySelector('.library__screen');
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          dots.forEach(d => d.classList.remove('is-active'));
+          dot.classList.add('is-active');
+          img.style.opacity = '0';
+          setTimeout(() => {
+            img.src = dot.dataset.src;
+            img.style.opacity = '1';
+          }, 150);
+        });
       });
     });
 

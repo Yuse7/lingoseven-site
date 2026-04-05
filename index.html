@@ -765,35 +765,77 @@
   <!-- 11. Отзывы -->
   <section class="reviews" id="reviews">
     <div class="container">
-      <h2 class="section__title">Что нравится пользователям LingoSeven</h2>
+      <h2 class="section__title">Мы сами не ожидали, что вам так понравится</h2>
+      <p class="section__subtitle">Но факт есть факт — вот что пишут в Google Play.</p>
       <div class="reviews__grid">
-        <div class="reviews__card">
+        <div class="reviews__card" data-review="pics/review-8.png">
           <div class="reviews__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="reviews__text">Наконец-то не страшно читать на английском. Параллельный перевод — просто спасение. За месяц прочитала первую книгу целиком!</p>
+          <p class="reviews__text">Приложение отличное. Огромный плюс, что одна книга может быть на нескольких уровнях английского языка. Жду с нетерпением обновления!</p>
           <div class="reviews__author">
-            <strong>Анна К.</strong>
-            <span>Английский &bull; Начинающий</span>
+            <strong>Екатерина М.</strong>
+            <span class="reviews__source">Google Play &bull; посмотреть оригинал</span>
           </div>
         </div>
-        <div class="reviews__card">
+        <div class="reviews__card" data-review="pics/review-9.png">
           <div class="reviews__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="reviews__text">Занимаюсь по 10 минут в метро. Краткое содержание бестселлеров — отличная идея. И кругозор растёт, и язык подтягивается.</p>
+          <p class="reviews__text">Оформил годовую подписку — и она очень экономичная. Это действительно замечательное приложение! Отличный ресурс для улучшения английского. От взрослых до детей — не только полезное, но и необходимое.</p>
           <div class="reviews__author">
-            <strong>Дмитрий М.</strong>
-            <span>Испанский &bull; Средний</span>
+            <strong>Mayur L.</strong>
+            <span class="reviews__source">Google Play &bull; посмотреть оригинал</span>
           </div>
         </div>
-        <div class="reviews__card">
+        <div class="reviews__card" data-review="pics/review-3.png">
           <div class="reviews__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="reviews__text">Стало заметно легче понимать на слух. Режим «слушай и читай» реально работает — связываешь звук с текстом.</p>
+          <p class="reviews__text">Нужен был португальский для работы с командой из Бразилии. Чтение + аудио одновременно — очень эффективно. За 6 недель уже могла следить за совещаниями.</p>
           <div class="reviews__author">
-            <strong>Елена В.</strong>
-            <span>Немецкий &bull; Продолжающий</span>
+            <strong>Rosita R.</strong>
+            <span class="reviews__source">Google Play &bull; посмотреть оригинал</span>
+          </div>
+        </div>
+        <div class="reviews__card" data-review="pics/review-4.png">
+          <div class="reviews__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="reviews__text">Всегда хотел выучить немецкий, в этом приложении всё намного доступнее и понятнее, чем в других аналогичных. Приложение 10 из 10.</p>
+          <div class="reviews__author">
+            <strong>Макс Р.</strong>
+            <span class="reviews__source">Google Play &bull; посмотреть оригинал</span>
+          </div>
+        </div>
+        <div class="reviews__card" data-review="pics/review-5.png">
+          <div class="reviews__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="reviews__text">Пользуюсь функцией чтения с аудио, и это стало для меня настоящим прорывом. Аудиодорожки чёткие и хорошо синхронизированы. Фантастический инструмент для изучающих языки.</p>
+          <div class="reviews__author">
+            <strong>Zeynep O.</strong>
+            <span class="reviews__source">Google Play &bull; посмотреть оригинал</span>
+          </div>
+        </div>
+        <div class="reviews__card" data-review="pics/review-6.png">
+          <div class="reviews__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="reviews__text">Задумка и реализация на 5+. На данный момент это единственное приложение с сербскими книгами. Молодцы! Спасибо!</p>
+          <div class="reviews__author">
+            <strong>Вася К.</strong>
+            <span class="reviews__source">Google Play &bull; посмотреть оригинал</span>
+          </div>
+        </div>
+        <div class="reviews__card" data-review="pics/review-7.png">
+          <div class="reviews__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="reviews__text">Это действительно замечательное приложение для меня как учителя. Рекомендую его своим ученикам. Очень приятно. Рекомендую всем.</p>
+          <div class="reviews__author">
+            <strong>Sasha T.</strong>
+            <span class="reviews__source">Google Play &bull; посмотреть оригинал</span>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Review screenshot modal -->
+  <div class="review-modal" id="reviewModal">
+    <div class="review-modal__backdrop"></div>
+    <div class="review-modal__content">
+      <button class="review-modal__close">&times;</button>
+      <img class="review-modal__img" src="" alt="Отзыв из Google Play">
+    </div>
+  </div>
 
   <!-- 12. FAQ -->
   <section class="faq" id="faq">
@@ -1165,6 +1207,19 @@
         document.querySelector(`.pains__answer[data-pain="${idx}"]`).classList.add('is-active');
       });
     });
+
+    // Review screenshot modal
+    const reviewModal = document.getElementById('reviewModal');
+    const reviewModalImg = reviewModal.querySelector('.review-modal__img');
+    document.querySelectorAll('.reviews__card[data-review]').forEach(card => {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', () => {
+        reviewModalImg.src = card.dataset.review;
+        reviewModal.classList.add('is-open');
+      });
+    });
+    reviewModal.querySelector('.review-modal__close').addEventListener('click', () => reviewModal.classList.remove('is-open'));
+    reviewModal.querySelector('.review-modal__backdrop').addEventListener('click', () => reviewModal.classList.remove('is-open'));
 
     // FAQ accordion
     document.querySelectorAll('.faq__q').forEach(q => {

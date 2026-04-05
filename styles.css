@@ -1839,21 +1839,30 @@ a { text-decoration: none; color: inherit; }
 }
 
 .reviews__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  max-width: 960px;
-  margin: 0 auto;
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 40px 20px;
+  margin: 0 -40px;
+  scrollbar-width: none;
+}
+
+.reviews__grid::-webkit-scrollbar {
+  display: none;
 }
 
 .reviews__card {
   background: #fff;
   border-radius: 20px;
-  padding: 32px 28px;
+  padding: 28px 24px;
   border: 1px solid #eee;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  flex: 0 0 320px;
+  scroll-snap-align: center;
 }
 
 .reviews__stars {
@@ -1878,6 +1887,88 @@ a { text-decoration: none; color: inherit; }
 .reviews__author span {
   font-size: 13px;
   color: #888;
+}
+
+.reviews__author .reviews__source {
+  color: #34D399;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  opacity: 0.8;
+  transition: opacity 0.15s;
+}
+
+.reviews__card:hover .reviews__source {
+  opacity: 1;
+}
+
+.reviews__card[data-review] {
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.reviews__card[data-review]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+
+/* Review modal */
+.review-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.review-modal.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.review-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+.review-modal__content {
+  position: relative;
+  max-width: 800px;
+  max-height: 90vh;
+  margin: 20px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.25);
+}
+
+.review-modal__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.review-modal__close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: rgba(255,255,255,0.9);
+  border: none;
+  font-size: 28px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  z-index: 1;
 }
 
 /* ===== 12. FAQ ===== */
@@ -2371,7 +2462,6 @@ a { text-decoration: none; color: inherit; }
   .library__panel-content h3 { font-size: 24px; }
   .phone__frame--md { width: 190px; height: 412px; }
 
-  .reviews__grid { grid-template-columns: 1fr 1fr; }
   .final-cta__title { font-size: 30px; }
   .footer__inner { flex-wrap: wrap; }
 }
@@ -2517,34 +2607,30 @@ a { text-decoration: none; color: inherit; }
   .phone__frame--sm { width: 220px; height: 476px; }
   .steps__connector { display: none; }
 
-  /* Library: stack */
+  /* Library: tabs + panels */
   .library { padding: 40px 0; }
-  .library__tabs { display: none; }
+  .library__tabs {
+    display: flex;
+    gap: 8px;
+    font-size: 13px;
+  }
+  .library__tab { padding: 8px 14px; font-size: 13px; }
 
   .library__panels {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 16px;
-    padding: 0 16px 16px;
-    margin: 0 -16px;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    display: block;
   }
-  .library__panels::-webkit-scrollbar { display: none; }
 
   .library__panel {
-    display: flex !important;
+    display: none !important;
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 20px;
-    flex: 0 0 85%;
-    scroll-snap-align: center;
-    background: #f9fafb;
-    border-radius: 20px;
-    padding: 24px 20px;
     animation: none !important;
+  }
+
+  .library__panel.is-active {
+    display: flex !important;
   }
 
   .library__panel-content { order: 2; }
@@ -2576,7 +2662,8 @@ a { text-decoration: none; color: inherit; }
 
   /* Reviews */
   .reviews { padding: 40px 0; }
-  .reviews__grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+  .reviews__grid { padding: 0 16px 16px; margin: 0 -16px; gap: 12px; }
+  .reviews__card { flex: 0 0 280px; padding: 24px 20px; }
 
   /* FAQ */
   .faq { padding: 40px 0; }

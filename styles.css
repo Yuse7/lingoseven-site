@@ -1441,11 +1441,11 @@ a { text-decoration: none; color: inherit; }
 }
 
 .phone__frame--sm {
-  width: 200px;
-  height: 433px;
+  width: 260px;
+  height: auto;
   margin: 0 auto;
-  border-radius: 22px;
-  border-width: 4px;
+  border-radius: 32px;
+  border-width: 5px;
 }
 
 .steps__card-title {
@@ -1463,24 +1463,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .steps__connector {
-  width: 40px;
-  height: 2px;
-  background: #dde0e4;
-  flex-shrink: 0;
-  margin-top: 160px;
-  position: relative;
-}
-
-.steps__connector::after {
-  content: '';
-  position: absolute;
-  right: -4px;
-  top: -3px;
-  width: 8px;
-  height: 8px;
-  border-right: 2px solid #dde0e4;
-  border-bottom: 2px solid #dde0e4;
-  transform: rotate(-45deg);
+  display: none;
 }
 
 .steps__summary {
@@ -1654,9 +1637,9 @@ a { text-decoration: none; color: inherit; }
 }
 
 .phone__frame--md {
-  width: 220px;
-  height: 476px;
-  border-radius: 28px;
+  width: 260px;
+  height: auto;
+  border-radius: 32px;
   border-width: 5px;
 }
 
@@ -2490,7 +2473,7 @@ a { text-decoration: none; color: inherit; }
 
   .library__panel.is-active { gap: 40px; }
   .library__panel-content h3 { font-size: 24px; }
-  .phone__frame--md { width: 190px; height: 412px; }
+  .phone__frame--md { width: 230px; height: auto; }
 
   .final-cta__title { font-size: 30px; }
   .footer__inner { flex-wrap: wrap; }
@@ -2634,7 +2617,7 @@ a { text-decoration: none; color: inherit; }
   .steps__card { max-width: 300px; width: 100%; text-align: center; display: flex; flex-direction: column; align-items: center; padding: 0; }
   .steps__num { margin-bottom: 12px; }
   .steps__phone { display: block; margin-bottom: 16px; }
-  .phone__frame--sm { width: 220px; height: 476px; }
+  .phone__frame--sm { width: 280px; height: auto; }
   .steps__connector { display: none; }
 
   /* Library: tabs + panels */
@@ -2667,7 +2650,7 @@ a { text-decoration: none; color: inherit; }
   .library__panel-content h3 { font-size: 20px; }
   .library__phone { order: 1; }
   .library__arrow { display: none; }
-  .phone__frame--md { width: 180px; height: 390px; margin: 0 auto; }
+  .phone__frame--md { width: 280px; height: auto; margin: 0 auto; }
   .library__badges { justify-content: center; }
 
   /* Demo: smaller */

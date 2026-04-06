@@ -908,16 +908,9 @@
       </div>
       <div class="footer__links">
         <a href="about.html">О нас</a>
-        <a href="#">Контакты</a>
-        <a href="#">Оферта</a>
-        <a href="#">Конфиденциальность</a>
-      </div>
-      <div class="footer__subscribe">
-        <p>Подпишись на новости и обновления</p>
-        <form class="footer__form" onsubmit="return false;">
-          <input type="email" placeholder="Email" class="footer__input">
-          <button type="submit" class="btn btn--primary footer__btn">OK</button>
-        </form>
+        <a href="contacts.html">Контакты</a>
+        <a href="terms.html">Пользовательское соглашение</a>
+        <a href="privacy.html">Конфиденциальность</a>
       </div>
     </div>
   </footer>
@@ -1220,6 +1213,20 @@
       dots.forEach((dot, i) => dot.addEventListener('click', () => switchTo(i)));
       if (prevBtn) prevBtn.addEventListener('click', () => switchTo((getActive() - 1 + dots.length) % dots.length));
       if (nextBtn) nextBtn.addEventListener('click', () => switchTo((getActive() + 1) % dots.length));
+
+      // Touch swipe on phone frame
+      const frame = phone.querySelector('.phone__frame');
+      let startX = 0;
+      if (frame) {
+        frame.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+        frame.addEventListener('touchend', e => {
+          const diff = e.changedTouches[0].clientX - startX;
+          if (Math.abs(diff) > 40) {
+            if (diff < 0) switchTo((getActive() + 1) % dots.length);
+            else switchTo((getActive() - 1 + dots.length) % dots.length);
+          }
+        });
+      }
     });
 
     // Pains chips

@@ -552,6 +552,8 @@
             </div>
           </div>
           <div class="library__phone">
+            <button class="library__arrow library__arrow--prev">&#8249;</button>
+            <button class="library__arrow library__arrow--next">&#8250;</button>
             <div class="phone__frame phone__frame--md">
               <img src="pics/benjamin.png" alt="Классика" class="phone__img library__screen">
             </div>
@@ -578,6 +580,8 @@
             </div>
           </div>
           <div class="library__phone">
+            <button class="library__arrow library__arrow--prev">&#8249;</button>
+            <button class="library__arrow library__arrow--next">&#8250;</button>
             <div class="phone__frame phone__frame--md">
               <img src="pics/IMG_1518.PNG" alt="Бестселлеры" class="phone__img library__screen">
             </div>
@@ -604,6 +608,8 @@
             </div>
           </div>
           <div class="library__phone">
+            <button class="library__arrow library__arrow--prev">&#8249;</button>
+            <button class="library__arrow library__arrow--next">&#8250;</button>
             <div class="phone__frame phone__frame--md">
               <img src="pics/IMG_1519.PNG" alt="Discovery" class="phone__img library__screen">
             </div>
@@ -1181,28 +1187,39 @@
     });
 
     // Library dots (gallery) — preload all images, then swap on click
-    document.querySelectorAll('.library__dots').forEach(dotsWrap => {
-      const dots = dotsWrap.querySelectorAll('.library__dot');
-      const img = dotsWrap.closest('.library__phone').querySelector('.library__screen');
+    document.querySelectorAll('.library__phone').forEach(phone => {
+      const dots = phone.querySelectorAll('.library__dot');
+      const img = phone.querySelector('.library__screen');
+      const prevBtn = phone.querySelector('.library__arrow--prev');
+      const nextBtn = phone.querySelector('.library__arrow--next');
+
       // Preload all gallery images
       dots.forEach(dot => {
         const preload = new Image();
         preload.src = dot.dataset.src;
       });
-      dots.forEach(dot => {
-        dot.addEventListener('click', () => {
-          if (dot.classList.contains('is-active')) return;
-          dots.forEach(d => d.classList.remove('is-active'));
-          dot.classList.add('is-active');
-          img.style.opacity = '0';
-          const newImg = new Image();
-          newImg.src = dot.dataset.src;
-          newImg.onload = () => {
-            img.src = dot.dataset.src;
-            img.style.opacity = '1';
-          };
-        });
-      });
+
+      function switchTo(idx) {
+        const dot = dots[idx];
+        if (!dot || dot.classList.contains('is-active')) return;
+        dots.forEach(d => d.classList.remove('is-active'));
+        dot.classList.add('is-active');
+        img.style.opacity = '0';
+        const newImg = new Image();
+        newImg.src = dot.dataset.src;
+        newImg.onload = () => {
+          img.src = dot.dataset.src;
+          img.style.opacity = '1';
+        };
+      }
+
+      function getActive() {
+        return [...dots].findIndex(d => d.classList.contains('is-active'));
+      }
+
+      dots.forEach((dot, i) => dot.addEventListener('click', () => switchTo(i)));
+      if (prevBtn) prevBtn.addEventListener('click', () => switchTo((getActive() - 1 + dots.length) % dots.length));
+      if (nextBtn) nextBtn.addEventListener('click', () => switchTo((getActive() + 1) % dots.length));
     });
 
     // Pains chips

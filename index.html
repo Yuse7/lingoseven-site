@@ -1180,19 +1180,27 @@
       });
     });
 
-    // Library dots (gallery)
+    // Library dots (gallery) — preload all images, then swap on click
     document.querySelectorAll('.library__dots').forEach(dotsWrap => {
       const dots = dotsWrap.querySelectorAll('.library__dot');
       const img = dotsWrap.closest('.library__phone').querySelector('.library__screen');
+      // Preload all gallery images
+      dots.forEach(dot => {
+        const preload = new Image();
+        preload.src = dot.dataset.src;
+      });
       dots.forEach(dot => {
         dot.addEventListener('click', () => {
+          if (dot.classList.contains('is-active')) return;
           dots.forEach(d => d.classList.remove('is-active'));
           dot.classList.add('is-active');
           img.style.opacity = '0';
-          setTimeout(() => {
+          const newImg = new Image();
+          newImg.src = dot.dataset.src;
+          newImg.onload = () => {
             img.src = dot.dataset.src;
             img.style.opacity = '1';
-          }, 150);
+          };
         });
       });
     });

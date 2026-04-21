@@ -1278,6 +1278,21 @@
       });
     });
 
+    // Track App Store / Google Play clicks in Yandex.Metrika
+    document.addEventListener('click', e => {
+      const link = e.target.closest('a[href]');
+      if (!link) return;
+      const href = link.href;
+      if (typeof ym !== 'function') return;
+      if (href.includes('apps.apple.com')) {
+        ym(108408307, 'reachGoal', 'click_app_store');
+        ym(108422162, 'reachGoal', 'click_app_store');
+      } else if (href.includes('play.google.com')) {
+        ym(108408307, 'reachGoal', 'click_google_play');
+        ym(108422162, 'reachGoal', 'click_google_play');
+      }
+    });
+
     // Library dots (gallery) — preload all images, then swap on click
     document.querySelectorAll('.library__phone').forEach(phone => {
       const dots = phone.querySelectorAll('.library__dot');

@@ -1055,28 +1055,28 @@
     </div>
   </div>
 
-  <script>
-    (function () {
-      var modal = document.getElementById('downloadModal');
-      if (!modal) return;
-      function open(e) { if (e) e.preventDefault(); modal.classList.add('is-open'); }
-      function close() { modal.classList.remove('is-open'); }
-      document.querySelectorAll('[data-open-download]').forEach(function (el) {
-        el.addEventListener('click', open);
-      });
-      modal.querySelectorAll('[data-close-download]').forEach(function (el) {
-        el.addEventListener('click', close);
-      });
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
-      });
-    })();
-  </script>
-
   <!-- Sticky CTA (mobile) -->
   <div class="sticky-cta" id="stickyCta">
     <a href="#" class="btn btn--primary btn--full" data-open-download>Скачать приложение</a>
   </div>
+
+  <script>
+    (function () {
+      var modal = document.getElementById('downloadModal');
+      if (!modal) return;
+      function openModal() { modal.classList.add('is-open'); }
+      function closeModal() { modal.classList.remove('is-open'); }
+      document.addEventListener('click', function (e) {
+        var opener = e.target.closest('[data-open-download]');
+        if (opener) { e.preventDefault(); openModal(); return; }
+        var closer = e.target.closest('[data-close-download]');
+        if (closer) { e.preventDefault(); closeModal(); }
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+      });
+    })();
+  </script>
   <script>
     const stickyCta = document.getElementById('stickyCta');
     const heroSection = document.querySelector('.hero');

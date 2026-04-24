@@ -1318,7 +1318,8 @@
     });
 
     // Track App Store / Google Play clicks in Yandex.Metrika.
-    // pointerdown + capture runs before navigation so the beacon flushes.
+    // Fire both reachGoal (for JS-event goals) and hit with virtual URL
+    // (for URL-contains goals). pointerdown + capture runs before navigation.
     document.addEventListener('pointerdown', e => {
       const link = e.target.closest('a[href]');
       if (!link) return;
@@ -1327,8 +1328,12 @@
       if (href.includes('apps.apple.com')) goal = 'click_app_store';
       else if (href.includes('play.google.com')) goal = 'click_google_play';
       if (!goal) return;
+      console.log('[metrika] click goal:', goal);
       if (typeof ym === 'function') {
         ym(108408307, 'reachGoal', goal);
+        ym(108422162, 'reachGoal', goal);
+        ym(108408307, 'hit', location.origin + '/' + goal);
+        ym(108422162, 'hit', location.origin + '/' + goal);
       }
     }, true);
 

@@ -2795,3 +2795,73 @@ a { text-decoration: none; color: inherit; }
   .store-btn { width: 36px; height: 36px; border-radius: 10px; }
   .store-link { height: 36px; }
 }
+
+/* ===== Download Modal ===== */
+.download-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.download-modal.is-open { display: flex; }
+
+.download-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+}
+
+.download-modal__card {
+  position: relative;
+  background: #fff;
+  border-radius: 24px;
+  padding: 40px 36px 36px;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  animation: fade-up 0.3s ease;
+}
+
+.download-modal__close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #999;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.download-modal__close:hover { color: #333; }
+
+.download-modal__title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 8px;
+}
+
+.download-modal__text {
+  font-size: 15px;
+  color: #666;
+  margin: 0 0 24px;
+}
+
+.download-modal__stores {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.download-modal__stores img {
+  display: block;
+  height: 52px;
+}

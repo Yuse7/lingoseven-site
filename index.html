@@ -34,22 +34,6 @@
   <link rel="stylesheet" href="styles.css">
   <script src="metrika.js"></script>
   <noscript><div><img src="https://mc.yandex.ru/watch/108422162" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-  <script>
-    (function () {
-      try {
-        if (sessionStorage.getItem('storeRedirected') === '1') return;
-        var ua = navigator.userAgent || '';
-        var isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-        var isAndroid = /Android/i.test(ua);
-        if (!isIOS && !isAndroid) return;
-        var url = isIOS
-          ? 'https://apps.apple.com/us/app/lingo7-reading-audio/id6471030440'
-          : 'https://play.google.com/store/apps/details?id=com.doublereading';
-        sessionStorage.setItem('storeRedirected', '1');
-        window.location.replace(url);
-      } catch (e) {}
-    })();
-  </script>
 </head>
 <body>
 

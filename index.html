@@ -1318,19 +1318,19 @@
     });
 
     // Track App Store / Google Play clicks in Yandex.Metrika
-    document.addEventListener('click', e => {
+    // Fire on pointerdown so reachGoal beacons flush before navigation.
+    document.addEventListener('pointerdown', e => {
       const link = e.target.closest('a[href]');
       if (!link) return;
-      const href = link.href;
+      const href = link.href || '';
       if (typeof ym !== 'function') return;
-      if (href.includes('apps.apple.com')) {
-        ym(108408307, 'reachGoal', 'click_app_store');
-        ym(108422162, 'reachGoal', 'click_app_store');
-      } else if (href.includes('play.google.com')) {
-        ym(108408307, 'reachGoal', 'click_google_play');
-        ym(108422162, 'reachGoal', 'click_google_play');
-      }
-    });
+      let goal = null;
+      if (href.includes('apps.apple.com')) goal = 'click_app_store';
+      else if (href.includes('play.google.com')) goal = 'click_google_play';
+      if (!goal) return;
+      ym(108408307, 'reachGoal', goal);
+      ym(108422162, 'reachGoal', goal);
+    }, true);
 
     // Library dots (gallery) — preload all images, then swap on click
     document.querySelectorAll('.library__phone').forEach(phone => {

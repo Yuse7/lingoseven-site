@@ -33,7 +33,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="metrika.js"></script>
-  <noscript><div><img src="https://mc.yandex.ru/watch/108408307" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <noscript><div><img src="https://mc.yandex.ru/watch/108422162" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
   <script>
     (function () {
       try {
@@ -1318,8 +1318,7 @@
     });
 
     // Track App Store / Google Play clicks in Yandex.Metrika.
-    // Fire both reachGoal (for JS-event goals) and hit with virtual URL
-    // (for URL-contains goals). pointerdown + capture runs before navigation.
+    // pointerdown + capture runs before navigation so the beacon flushes.
     document.addEventListener('pointerdown', e => {
       const link = e.target.closest('a[href]');
       if (!link) return;
@@ -1328,12 +1327,8 @@
       if (href.includes('apps.apple.com')) goal = 'click_app_store';
       else if (href.includes('play.google.com')) goal = 'click_google_play';
       if (!goal) return;
-      console.log('[metrika] click goal:', goal);
       if (typeof ym === 'function') {
-        ym(108408307, 'reachGoal', goal);
         ym(108422162, 'reachGoal', goal);
-        ym(108408307, 'hit', location.origin + '/' + goal);
-        ym(108422162, 'hit', location.origin + '/' + goal);
       }
     }, true);
 

@@ -91,7 +91,7 @@
       <div class="hero__content">
         <h1 class="hero__title">Учите язык через увлекательное чтение,<br>а&nbsp;не&nbsp;через скучные упражнения</h1>
         <p class="hero__subtitle">Читайте и слушайте интересный контент, сохраняйте слова прямо из текста и повторяйте их по умному алгоритму.</p>
-        <a href="#" class="btn btn--primary hero__cta">Попробовать бесплатно 7 дней</a>
+        <a href="#stores" class="btn btn--primary hero__cta">Скачать приложение</a>
         <p class="hero__trust">49 языков &bull; iPhone / Android</p>
         <div class="hero__pills hero__pills--desktop">
           <span class="pill">Параллельный перевод</span>
@@ -1003,13 +1003,17 @@
   </section>
 
   <!-- 13. Финальный CTA -->
-  <section class="final-cta">
+  <section class="final-cta" id="stores">
     <div class="container final-cta__inner">
       <h2 class="final-cta__title">Начните учить язык с&nbsp;удовольствием уже сегодня</h2>
-      <p class="final-cta__text">7 дней бесплатно. Если не понравится — просто не продолжайте.</p>
-      <a href="#" class="btn btn--primary btn--lg">Попробовать бесплатно</a>
-      <div class="final-cta__stores">
-        <span>Доступно в App Store и Google Play</span>
+      <p class="final-cta__text">Скачайте приложение и откройте первую книгу — бесплатно.</p>
+      <div class="final-cta__store-buttons">
+        <a href="https://apps.apple.com/us/app/lingo7-reading-audio/id6471030440" class="store-btn" target="_blank" rel="noopener" aria-label="App Store">
+          <img src="https://static.tildacdn.com/tild3763-3738-4137-b830-613065353063/_.svg" alt="App Store" height="56">
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.doublereading" class="store-btn" target="_blank" rel="noopener" aria-label="Google Play">
+          <img src="https://static.tildacdn.com/tild6238-3365-4437-b962-383231626236/__.svg" alt="Google Play" height="56">
+        </a>
       </div>
       <div class="final-cta__perks">
         <span>49 языков</span>
@@ -1039,7 +1043,7 @@
 
   <!-- Sticky CTA (mobile) -->
   <div class="sticky-cta" id="stickyCta">
-    <a href="#" class="btn btn--primary btn--full">Попробовать бесплатно</a>
+    <a href="#stores" class="btn btn--primary btn--full">Скачать приложение</a>
   </div>
   <script>
     const stickyCta = document.getElementById('stickyCta');
@@ -1071,62 +1075,6 @@
         burger.classList.remove('is-open');
         mobileMenu.classList.remove('is-open');
       });
-    });
-  </script>
-
-  <!-- Promo Modal -->
-  <div class="promo-modal" id="promoModal">
-    <div class="promo-modal__backdrop"></div>
-    <div class="promo-modal__card">
-      <button class="promo-modal__close" id="promoClose">&times;</button>
-      <h3 class="promo-modal__title">Ваш промокод на бесплатный доступ</h3>
-      <div class="promo-modal__code" id="promoCode">bestapp2026</div>
-      <button class="promo-modal__copy" id="promoCopy">Скопировать</button>
-      <div class="promo-modal__steps">
-        <div class="promo-modal__step">
-          <span class="promo-modal__num">1</span>
-          <p>Скачайте приложение LingoSeven</p>
-        </div>
-        <div class="promo-modal__stores">
-          <a href="https://apps.apple.com/us/app/lingo7-reading-audio/id6471030440" target="_blank" rel="noopener">
-            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" height="44">
-          </a>
-          <a href="https://play.google.com/store/apps/details?id=com.doublereading" target="_blank" rel="noopener">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" height="44">
-          </a>
-        </div>
-        <div class="promo-modal__step">
-          <span class="promo-modal__num">2</span>
-          <p>Откройте приложение и зайдите в <strong>Профиль</strong></p>
-        </div>
-        <div class="promo-modal__step">
-          <span class="promo-modal__num">3</span>
-          <p>Введите промокод <strong>bestapp2026</strong> — и пользуйтесь бесплатно!</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // Promo modal
-    const promoModal = document.getElementById('promoModal');
-    const promoClose = document.getElementById('promoClose');
-    const promoCopy = document.getElementById('promoCopy');
-
-    document.querySelectorAll('.hero__cta, .btn--lg, .sticky-cta .btn').forEach(btn => {
-      btn.addEventListener('click', e => {
-        e.preventDefault();
-        promoModal.classList.add('is-open');
-      });
-    });
-
-    promoClose.addEventListener('click', () => promoModal.classList.remove('is-open'));
-    promoModal.querySelector('.promo-modal__backdrop').addEventListener('click', () => promoModal.classList.remove('is-open'));
-
-    promoCopy.addEventListener('click', () => {
-      navigator.clipboard.writeText('bestapp2026');
-      promoCopy.textContent = 'Скопировано!';
-      setTimeout(() => { promoCopy.textContent = 'Скопировать'; }, 2000);
     });
   </script>
 
